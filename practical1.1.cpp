@@ -11,67 +11,70 @@ creating a simple and efficient solution to manage the accounts effectively. The
 ensure that all account details are secure and accessible only through authorized methods.*/
 
 #include<iostream>
-#include<string>
 using namespace std;
-
-class bankaccount{
-private:
-    string account_holder_name;
-    string account_number;
-    double account_balance;
+class bankaccount
+{
+    char name[15];
+    double acc_num;
+    double balance=0;
 
 public:
-      //construter name = class name
-
-bankaccount(string name,string accnumber,double accbalance)
-{
-    account_holder_name=name;
-    account_number=accnumber;
-    account_balance=accbalance;
-}
-
-    //for get the data se bhi yhaa kam chal skta tha
-
-//deposite function
-void deposite(double amount)
-{
-    if (amount>0){
-     account_balance+=amount;
-     cout<<"money is deposite"<<account_balance;
-    }
-    else
-    {
-
-    cout<<"money is not deposite";
-    }
-}
-//widrow function
-void widrow(double ammount)
-{
-    if(ammount>0&&ammount<=account_balance){
-        account_balance-=ammount;
-        cout<<"money is withdraw succesfully!"<<account_balance;
-
-    }
-    else{
-        cout<<"money is not withdraw succesflly";
-    }
-}
-//display the ammount
-void display()
-const{
-cout<<"account holder"<<account_holder_name<<endl;
-cout<<"account number"<<account_number<<endl;
-cout<<"account balance"<<account_balance<<endl;
-
-}
+    void getdata();
+    void putdata();
+    void deposit();
+    void withdraw();
+    void display_balance();
 };
+
+void bankaccount::getdata()
+{
+    cout<<"\n Enter your name: ";
+    cin>>name;
+    cout<<"\n Enter your account number: ";
+    cin>>acc_num;
+    cout<<"\n Enter your initial balance:";
+    cin>>balance;
+}
+
+void bankaccount::putdata()
+{
+    cout<<"\n Your name is "<<name;
+    cout<<"\n Your account number is "<<acc_num;
+    cout<<"\n Your initial balance is "<<balance;
+}
+
+void bankaccount::deposit()
+{
+    int a;
+    cout<<"\n Enter the amount you want to deposit: ";
+    cin>>a;
+    balance=balance+a;
+}
+
+void bankaccount::withdraw()
+{
+    int w;
+    cout<<"\n Enter the amount you want to withdraw: ";
+    cin>>w;
+    balance=balance-w;
+    if(balance<0)
+    {
+        cout<<"Insufficient balance in account.";
+    }
+}
+
+void bankaccount::display_balance()
+{
+    cout<<"\n Your current balance is: "<<balance;
+}
+
 int main()
 {
-     bankaccount account("prakruti", "123456789", 1000); //yha pe account name ka object banaya hai
-
-     account.deposite(500);
-     account.widrow(300);
-     account.display();
-     return 0;
+    bankaccount b1;
+    b1.getdata();
+    b1.putdata();
+    b1.deposit();
+    b1.withdraw();
+    b1.display_balance();
+    cout<<"\n prakruti pethani";
 }
