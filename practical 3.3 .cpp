@@ -15,7 +15,7 @@ initial system was built, ensuring that the bank could easily accommodate more a
 transactions as the customer base grew.*/
 
 
-//This Program is prepared by 24CE089_NILAY PATEL
+
 #include<iostream>//Standard Input/Output library
 using namespace std;
 
@@ -163,7 +163,7 @@ int main()
 
             default://Default Case
             {
-                cout << "24CE132_shreeja" << endl;//Printing exiting message
+                cout << "24CE096" << endl;//Printing exiting message
                 return 0;//Return statement
             }
     }
